@@ -106,3 +106,7 @@ chat.addDependency(waf);
 chat.addDependency(bedrockRegionResources);
 
 cdk.Aspects.of(chat).add(new LogRetentionChecker());
+
+// myApplicationタグを追加
+cdk.Tags.of(bedrockRegionResources).add("awsApplication", "arn:aws:resource-groups:us-east-1:637423213562:group/bedrock-claude-chat/0acatcdpv700yaduph8gqmz0eq")
+cdk.Tags.of(chat).add("awsApplication", "arn:aws:resource-groups:us-east-1:637423213562:group/bedrock-claude-chat/0acatcdpv700yaduph8gqmz0eq")
