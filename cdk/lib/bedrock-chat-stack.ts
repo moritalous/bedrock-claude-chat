@@ -26,7 +26,7 @@ import { BedrockCustomBotCodebuild } from "./constructs/bedrock-custom-bot-codeb
 
 export interface BedrockChatStackProps extends StackProps {
   readonly bedrockRegion: string;
-  readonly webAclId: string;
+  // readonly webAclId: string;
   readonly identityProviders: TIdentityProvider[];
   readonly userPoolDomainPrefix: string;
   readonly publishedApiAllowedIpV4AddressRanges: string[];
@@ -35,7 +35,7 @@ export interface BedrockChatStackProps extends StackProps {
   readonly autoJoinUserGroups: string[];
   readonly enableMistral: boolean;
   readonly selfSignUpEnabled: boolean;
-  readonly enableIpV6: boolean;
+  // readonly enableIpV6: boolean;
   readonly documentBucket: Bucket;
   readonly useStandbyReplicas: boolean;
   readonly enableBedrockCrossRegionInference: boolean;
@@ -123,9 +123,9 @@ export class BedrockChatStack extends cdk.Stack {
 
     const frontend = new Frontend(this, "Frontend", {
       accessLogBucket,
-      webAclId: props.webAclId,
+      // webAclId: props.webAclId,
       enableMistral: props.enableMistral,
-      enableIpV6: props.enableIpV6,
+      // enableIpV6: props.enableIpV6,
       alternateDomainName: props.alternateDomainName,
       hostedZoneId: props.hostedZoneId,
     });

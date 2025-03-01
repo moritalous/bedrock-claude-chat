@@ -83,8 +83,8 @@ const chat = new BedrockChatStack(app, `BedrockChatStack`, {
   },
   crossRegionReferences: true,
   bedrockRegion: BEDROCK_REGION,
-  webAclId: waf.webAclArn.value,
-  enableIpV6: waf.ipV6Enabled,
+  // webAclId: waf.webAclArn.value,
+  // enableIpV6: waf.ipV6Enabled,
   identityProviders: IDENTITY_PROVIDERS,
   userPoolDomainPrefix: USER_POOL_DOMAIN_PREFIX,
   publishedApiAllowedIpV4AddressRanges:
@@ -108,5 +108,6 @@ chat.addDependency(bedrockRegionResources);
 cdk.Aspects.of(chat).add(new LogRetentionChecker());
 
 // myApplicationタグを追加
+// cdk.Tags.of(waf).add("awsApplication", "arn:aws:resource-groups:us-east-1:637423213562:group/bedrock-claude-chat/0acatcdpv700yaduph8gqmz0eq")
 cdk.Tags.of(bedrockRegionResources).add("awsApplication", "arn:aws:resource-groups:us-east-1:637423213562:group/bedrock-claude-chat/0acatcdpv700yaduph8gqmz0eq")
 cdk.Tags.of(chat).add("awsApplication", "arn:aws:resource-groups:us-east-1:637423213562:group/bedrock-claude-chat/0acatcdpv700yaduph8gqmz0eq")

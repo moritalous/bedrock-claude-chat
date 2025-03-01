@@ -21,10 +21,10 @@ import * as targets from "aws-cdk-lib/aws-route53-targets";
 import * as acm from "aws-cdk-lib/aws-certificatemanager";
 
 export interface FrontendProps {
-  readonly webAclId: string;
+  // readonly webAclId: string;
   readonly enableMistral: boolean;
   readonly accessLogBucket?: IBucket;
-  readonly enableIpV6: boolean;
+  // readonly enableIpV6: boolean;
   /** 
    * Alternative domain name for CloudFront distribution (e.g., chat.example.com)
    * If provided, CloudFront will be accessible via this domain
@@ -103,8 +103,8 @@ export class Frontend extends Construct {
         logBucket: props.accessLogBucket,
         logFilePrefix: "Frontend/",
       }),
-      webAclId: props.webAclId,
-      enableIpv6: props.enableIpV6,
+      // webAclId: props.webAclId,
+      // enableIpv6: props.enableIpV6,
     });
 
     if (this.alternateDomainName && this.hostedZone) {
@@ -116,15 +116,15 @@ export class Frontend extends Construct {
         recordName: this.alternateDomainName,
       });
 
-      if (props.enableIpV6) {
-        new route53.AaaaRecord(this, 'AaaaRecord', {
-          zone: this.hostedZone,
-          target: route53.RecordTarget.fromAlias(
-            new targets.CloudFrontTarget(distribution)
-          ),
-          recordName: this.alternateDomainName,
-        });
-      }
+      // if (props.enableIpV6) {
+      //   new route53.AaaaRecord(this, 'AaaaRecord', {
+      //     zone: this.hostedZone,
+      //     target: route53.RecordTarget.fromAlias(
+      //       new targets.CloudFrontTarget(distribution)
+      //     ),
+      //     recordName: this.alternateDomainName,
+      //   });
+      // }
     }
 
     NagSuppressions.addResourceSuppressions(distribution, [
