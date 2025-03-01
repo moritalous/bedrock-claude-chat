@@ -102,7 +102,7 @@ const chat = new BedrockChatStack(app, `BedrockChatStack`, {
   alternateDomainName: ALTERNATE_DOMAIN_NAME,
   hostedZoneId: HOSTED_ZONE_ID,
 });
-chat.addDependency(waf);
+// chat.addDependency(waf);
 chat.addDependency(bedrockRegionResources);
 
 cdk.Aspects.of(chat).add(new LogRetentionChecker());
