@@ -223,14 +223,14 @@ export class BedrockChatStack extends cdk.Stack {
     });
 
     // WebAcl for published API
-    const webAclForPublishedApi = new WebAclForPublishedApi(
-      this,
-      "WebAclForPublishedApi",
-      {
-        allowedIpV4AddressRanges: props.publishedApiAllowedIpV4AddressRanges,
-        allowedIpV6AddressRanges: props.publishedApiAllowedIpV6AddressRanges,
-      }
-    );
+    // const webAclForPublishedApi = new WebAclForPublishedApi(
+    //   this,
+    //   "WebAclForPublishedApi",
+    //   {
+    //     allowedIpV4AddressRanges: props.publishedApiAllowedIpV4AddressRanges,
+    //     allowedIpV6AddressRanges: props.publishedApiAllowedIpV6AddressRanges,
+    //   }
+    // );
 
     new CfnOutput(this, "DocumentBucketName", {
       value: props.documentBucket.bucketName,
@@ -240,10 +240,10 @@ export class BedrockChatStack extends cdk.Stack {
     });
 
     // Outputs for API publication
-    new CfnOutput(this, "PublishedApiWebAclArn", {
-      value: webAclForPublishedApi.webAclArn,
-      exportName: "PublishedApiWebAclArn",
-    });
+    // new CfnOutput(this, "PublishedApiWebAclArn", {
+    //   value: webAclForPublishedApi.webAclArn,
+    //   exportName: "PublishedApiWebAclArn",
+    // });
     new CfnOutput(this, "ConversationTableName", {
       value: database.table.tableName,
       exportName: "BedrockClaudeChatConversationTableName",
