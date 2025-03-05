@@ -51,7 +51,7 @@ console.log(
 console.log(`PUBLISHED_API_ID: ${PUBLISHED_API_ID}`);
 console.log(`PUBLISHED_API_ALLOWED_ORIGINS: ${PUBLISHED_API_ALLOWED_ORIGINS}`);
 
-const webAclArn = cdk.Fn.importValue("PublishedApiWebAclArn");
+// const webAclArn = cdk.Fn.importValue("PublishedApiWebAclArn");
 
 const conversationTableName = cdk.Fn.importValue(
   "BedrockClaudeChatConversationTableName"
@@ -74,7 +74,7 @@ const publishedApi = new ApiPublishmentStack(
     bedrockRegion: BEDROCK_REGION,
     conversationTableName: conversationTableName,
     tableAccessRoleArn: tableAccessRoleArn,
-    webAclArn: webAclArn,
+    // webAclArn: webAclArn,
     largeMessageBucketName: largeMessageBucketName,
     usagePlan: {
       throttle:
