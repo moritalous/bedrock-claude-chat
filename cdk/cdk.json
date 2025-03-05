@@ -70,7 +70,7 @@
     ],
     "enableRagReplicas": true,
     "enableBedrockCrossRegionInference": true,
-    "enableLambdaSnapStart": true,
+    "enableLambdaSnapStart": false,
     "alternateDomainName": "",
     "hostedZoneId": ""
   }
