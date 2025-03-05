@@ -250,10 +250,10 @@ export class UsageAnalysis extends Construct {
     );
     ddbBucket.grantReadWrite(exportHandler);
 
-    new events.Rule(this, "ScheduleRule", {
-      schedule: events.Schedule.cron({ minute: "5" }),
-      targets: [new targets.LambdaFunction(exportHandler)],
-    });
+    // new events.Rule(this, "ScheduleRule", {
+    //   schedule: events.Schedule.cron({ minute: "5" }),
+    //   targets: [new targets.LambdaFunction(exportHandler)],
+    // });
 
     new CfnOutput(this, "UsageAnalysisWorkgroup", {
       value: wg.name,
